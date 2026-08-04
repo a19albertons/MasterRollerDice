@@ -61,7 +61,7 @@ jobs:
         run: ./gradlew assembleRelease
 
       - name: Subir APKs firmados como artefactos
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: apkSinFirmar
           path: ${{ github.workspace }}/MasterRollerDice/app/build/outputs/apk/release/app-release-unsigned.apk
@@ -179,7 +179,7 @@ jobs:
             "./apkSinFirmar/MasterRollerDice/app/build/outputs/apk/release/app-release-unsigned.apk"
 
       - name: Subir APKs firmada como artefactos
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: apkFirmada
           path: ./app-signed.apk
