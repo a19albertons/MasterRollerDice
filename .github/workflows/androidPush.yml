@@ -160,7 +160,7 @@ jobs:
       # Obtencion keystore
       - name: Obtener keystore
         run: |
-          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > ./fichero.jks
+          echo "$KEYSTORE_BASE64" | base64 --decode > ./fichero.jks
 
       # Obtiene las herramientas de android
       - name: Herramientas android
@@ -172,9 +172,9 @@ jobs:
           "$ANDROID_HOME/build-tools/${{ env.ANDROID_BUILD_TOOLS }}/apksigner" \
             sign \
             --ks fichero.jks \
-            --ks-pass "pass:${CI_KEYSTORE_PASSWORD}" \
-            --ks-key-alias "${CI_KEY_ALIAS}" \
-            --key-pass "pass:${CI_KEY_PASSWORD}" \
+            --ks-pass "pass:$KEYSTORE_PASSWORD" \
+            --ks-key-alias "$KEY_ALIAS" \
+            --key-pass "pass:$KEY_PASSWORD" \
             --out app-signed.apk \
             "./apkSinFirmar/MasterRollerDice/app/build/outputs/apk/release/app-release-unsigned.apk"
 
