@@ -84,7 +84,7 @@ jobs:
   TestsInstrumentados:
     name: Pruebas Instrumentadas
     runs-on: ubuntu-24.04
-    needs: TestsUnitarios
+    needs: Compilacion
     strategy:
       fail-fast: false
       matrix:
