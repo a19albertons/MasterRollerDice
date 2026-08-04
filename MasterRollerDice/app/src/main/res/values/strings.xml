@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MasterRollerDice</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="total_label">Total: 0</string>
+
+    <!-- Content descriptions for dice images -->
+    <string name="d4_desc">D4 die</string>
+    <string name="d6_desc">D6 die</string>
+    <string name="d8_desc">D8 die</string>
+    <string name="d10_desc">D10 die</string>
+    <string name="d12_desc">D12 die</string>
+    <string name="d20_desc">D20 die</string>
+    <string name="d100_desc">D100 die</string>
+
+    <!-- Historial strings -->
+    <string name="historial_lanzamiento">Lanzamiento</string>
+    <string name="historial_tipo_dado">Tipo de dado</string>
+    <string name="historial_total">Total</string>
+    <string name="historial_vacio">Vacío</string>
+</resources>

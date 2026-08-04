@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <EditText
+        android:id="@+id/historial_lanzamiento"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/historial_item_height"
+        android:layout_weight="0.33"
+        android:text="@string/historial_lanzamiento"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_historial"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:hint="@string/historial_lanzamiento"
+        android:inputType="text"
+        android:autofillHints="username" />
+
+    <EditText
+        android:id="@+id/historial_tipo_dado"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/historial_item_height"
+        android:layout_weight="0.33"
+        android:textAlignment="center"
+        android:text="@string/historial_tipo_dado"
+        android:textSize="@dimen/text_size_historial"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:hint="@string/historial_tipo_dado"
+        android:inputType="text"
+        android:autofillHints="username" />
+
+    <EditText
+        android:id="@+id/historial_total"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/historial_item_height"
+        android:layout_weight="0.33"
+        android:text="@string/historial_total"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_historial"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:hint="@string/historial_total"
+        android:inputType="text"
+        android:autofillHints="username" />
+
+</LinearLayout>
