@@ -160,7 +160,7 @@ jobs:
       # Obtencion keystore
       - name: Obtener keystore
         run: |
-          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > ./keystore.jks
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > ./fichero.jks
 
       # Obtiene las herramientas de android
       - name: Herramientas android
