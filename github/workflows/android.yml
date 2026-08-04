@@ -1,0 +1,80 @@
+name: CI CD Master Roller Dice
+
+# Donde aplica
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+# Variables de entorno actuales
+env:
+  JAVA_VERSION: 17
+
+# Tareas que deben ejecutarse
+jobs:
+  # Tests del código sin compilar
+  AnalisisEstatico:
+    name: Analisis Estático
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        accion: [lint]
+    steps:
+      # Checkout del repositorio
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      # Configuración de Java
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: ${{ env.JAVA_VERSION }}
+
+      # Ejecutar análisis estático
+      - name: Ejecutar análisis estático
+        run: ${{ github.workspace }}/MasterRollerDice/gradlew ${{ matrix.accion }}
+
+  # Prueba de compilación
+  Compilacion:
+    name: Prueba de Compilación
+    runs-on: ubuntu-24.04
+    needs: AnalisisEstatico
+    steps:
+      # Checkout del repositorio
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      # Configuración de Java
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: ${{ env.JAVA_VERSION }}
+
+      # Ejecutar compilación
+      - name: Ejecutar compilación
+        run: ${{ github.workspace }}/MasterRollerDice/gradlew assembleRelease
+
+  # PruebasUnitarias:
+  TestsUnitarios:
+    name: Pruebas Unitarias
+    runs-on: ubuntu-24.04
+    needs: Compilacion
+    steps:
+      # Checkout del repositorio
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      # Configuración de Java
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: ${{ env.JAVA_VERSION }}
+
+      # Ejecutar pruebas unitarias
+      - name: Ejecutar pruebas unitarias
+        run: ${{ github.workspace }}/MasterRollerDice/gradlew testReleaseUnitTest
