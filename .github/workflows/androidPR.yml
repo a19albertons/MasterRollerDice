@@ -1,9 +1,7 @@
-name: CI CD Master Roller Dice
+name: CI CD Master Roller Dice (pull request)
 
 # Donde aplica
 on:
-  push:
-    branches: ["main"]
   pull_request:
     branches: ["main"]
 
@@ -120,3 +118,5 @@ jobs:
           profile: pixel_2
           working-directory: ${{ github.workspace }}/MasterRollerDice
           script: ./gradlew app:connectedAndroidTest
+
+  
