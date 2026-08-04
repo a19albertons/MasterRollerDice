@@ -35,7 +35,8 @@ jobs:
 
       # Ejecutar análisis estático
       - name: Ejecutar análisis estático
-        run: ${{ github.workspace }}/MasterRollerDice/gradlew ${{ matrix.accion }}
+        working-directory: ${{ github.workspace }}/MasterRollerDice
+        run: ./gradlew ${{ matrix.accion }}
 
   # Prueba de compilación
   Compilacion:
@@ -56,7 +57,8 @@ jobs:
 
       # Ejecutar compilación
       - name: Ejecutar compilación
-        run: ${{ github.workspace }}/MasterRollerDice/gradlew assembleRelease
+        working-directory: ${{ github.workspace }}/MasterRollerDice
+        run: ./gradlew assembleRelease
 
   # PruebasUnitarias:
   TestsUnitarios:
@@ -77,4 +79,5 @@ jobs:
 
       # Ejecutar pruebas unitarias
       - name: Ejecutar pruebas unitarias
-        run: ${{ github.workspace }}/MasterRollerDice/gradlew testReleaseUnitTest
+        working-directory: ${{ github.workspace }}/MasterRollerDice
+        run: ./gradlew testReleaseUnitTest
