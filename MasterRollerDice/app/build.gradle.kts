@@ -1,7 +1,6 @@
 plugins {
     // Librerias por defecto
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
 
     // Safe Args para pasar parametro de una clase a otra
     alias(libs.plugins.androidx.navigation.safeargs) apply false
@@ -31,7 +30,8 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
@@ -39,11 +39,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 

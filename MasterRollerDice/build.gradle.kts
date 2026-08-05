@@ -2,7 +2,6 @@
 plugins {
     // Librerias por defecto
     alias(libs.plugins.android.application) apply false
-    alias(libs.plugins.kotlin.android) apply false
 
     // Safe Args para pasar parametro de una clase a otra
     alias(libs.plugins.androidx.navigation.safeargs) apply false
