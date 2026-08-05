@@ -5,23 +5,17 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -58,20 +52,20 @@ class MainActivity : AppCompatActivity() {
         bottmNav.setupWithNavController(navHostFragment.navController)
 
         startService(Intent(this, MusicService::class.java))
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_toolbar, menu)
         return super.onCreateOptionsMenu(menu)
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Aquí es donde manejas los clics
         when (item.itemId) {
             // ACCIÓN 1: Limpiar Historial
             R.id.action_limpiar_historial -> {
                 // Llama al metodo de historial.kt directamente
-                borrarHistorial(this,navController)
+                borrarHistorial(this, navController)
 
                 // Notifica que hace algo
                 Toast.makeText(this, "Limpiar Historial", Toast.LENGTH_SHORT).show()
