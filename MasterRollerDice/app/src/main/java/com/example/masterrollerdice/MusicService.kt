@@ -6,13 +6,20 @@ import android.media.MediaPlayer
 import android.os.IBinder
 import android.util.Log
 
+/**
+ * Servicio de musica
+ */
 class MusicService : Service() {
     private var mediaPlayer: MediaPlayer? = null
 
-    override fun onBind(intent: Intent?): IBinder? {
-        return null
-    }
+    /**
+     * Se llama cuando se crea el servicio
+     */
+    override fun onBind(intent: Intent?): IBinder? = null
 
+    /**
+     * Se llama cuando se crea el servicio
+     */
     override fun onCreate() {
         super.onCreate()
         // Inicializa el MediaPlayer cuando el servicio se crea por primera vez.
@@ -22,7 +29,14 @@ class MusicService : Service() {
         Log.d("MusicService", "Servicio de música creado y MediaPlayer inicializado.")
     }
 
-    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+    /**
+     * Se llama cuando se inicia el servicio
+     */
+    override fun onStartCommand(
+        intent: Intent?,
+        flags: Int,
+        startId: Int,
+    ): Int {
         // Se llama cada vez que se inicia el servicio con startService().
         if (mediaPlayer?.isPlaying == false) {
             mediaPlayer?.start()
@@ -32,6 +46,9 @@ class MusicService : Service() {
         return START_STICKY
     }
 
+    /**
+     * Se llama cuando se destruye el servicio
+     */
     override fun onDestroy() {
         super.onDestroy()
         // Libera los recursos del MediaPlayer cuando el servicio se destruye.

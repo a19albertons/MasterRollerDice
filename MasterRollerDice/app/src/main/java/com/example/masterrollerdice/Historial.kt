@@ -2,26 +2,30 @@ package com.example.masterrollerdice
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-
+/**
+ * Fragmento del historial
+ */
 class Historial : Fragment() {
-
-
+    /**
+     * Crea la vista del fragmento
+     */
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        val view =  inflater.inflate(R.layout.fragment_historial, container, false)
+        val view = inflater.inflate(R.layout.fragment_historial, container, false)
 
         // Comprobamos si el csv esta vacio o no
         val historialData = leerCSV(requireContext())
@@ -37,8 +41,12 @@ class Historial : Fragment() {
 
         return view
     }
+
     // Dentro de tu Fragmento/Activity:
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         // 1. Obtén la lista de datos del CSV
@@ -54,49 +62,78 @@ class Historial : Fragment() {
         // 4. Crea y asigna el Adapter
         recyclerView.adapter = HistorialAdapter(historialData)
     }
-
 }
 
+/**
+ * Data class interno que procesa el fichero csv
+ */
 data class HistorialEntry(
     val lanzamiento: String,
     val tipoDado: String,
-    val total: String
+    val total: String,
 )
 
-class HistorialAdapter(private var historialList: MutableList<HistorialEntry>) :
-    RecyclerView.Adapter<HistorialAdapter.HistorialViewHolder>() {
-
-    // 1. ViewHolder: Guarda las referencias a las vistas de cada fila
-    class HistorialViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+/**
+ * El adapter que genera la lista dinamica a partir del contenido del csv
+ */
+class HistorialAdapter(
+    private var historialList: MutableList<HistorialEntry>,
+) : RecyclerView.Adapter<HistorialAdapter.HistorialViewHolder>() {
+    /**
+     * Clase interna que representa una fila de la lista
+     */
+    class HistorialViewHolder(
+        itemView: View,
+    ) : RecyclerView.ViewHolder(itemView) {
         val historialLanzamientol: TextView = itemView.findViewById(R.id.historial_lanzamiento)
         val historialTipoDado: TextView = itemView.findViewById(R.id.historial_tipo_dado)
         val historialTotal: TextView = itemView.findViewById(R.id.historial_total)
     }
 
-    // 2. Crea nuevos ViewHolders (infla el layout de la fila)
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistorialViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.historial_objetos, parent, false)
+    /**
+     * Crea una nueva vista (fila)
+     */
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int,
+    ): HistorialViewHolder {
+        val view =
+            LayoutInflater
+                .from(parent.context)
+                .inflate(R.layout.historial_objetos, parent, false)
         return HistorialViewHolder(view)
     }
 
-    // 3. Reemplaza el contenido de una vista (une los datos a la vista)
-    override fun onBindViewHolder(holder: HistorialViewHolder, position: Int) {
+    /**
+     * Reemplaza el contenido de una vista (une los datos a la vista)
+     */
+    override fun onBindViewHolder(
+        holder: HistorialViewHolder,
+        position: Int,
+    ) {
         val currentItem = historialList[position]
         holder.historialLanzamientol.text = currentItem.lanzamiento
         holder.historialTipoDado.text = currentItem.tipoDado
         holder.historialTotal.text = currentItem.total
     }
 
-    // 4. Devuelve el número total de elementos
+    /**
+     * Devuelve el número de elementos en la lista
+     */
     override fun getItemCount() = historialList.size
 
+    /**
+     * Borra todos los datos de la lista
+     */
     fun limpiarDatos() {
         historialList.clear() // Borra la lista en memoria
         notifyDataSetChanged() // Avisa al RecyclerView para que se repinte
     }
 }
 
+/**
+ * funcion encargada de leer el fichero csv
+ */
 fun leerCSV(context: Context): List<HistorialEntry> {
     val historialList = mutableListOf<HistorialEntry>()
     try {
@@ -105,11 +142,12 @@ fun leerCSV(context: Context): List<HistorialEntry> {
             lines.forEach { line ->
                 val columnas = line.split(',')
                 if (columnas.size >= 3) {
-                    val entry = HistorialEntry(
-                        lanzamiento = columnas[0],
-                        tipoDado = columnas[1],
-                        total = columnas[2]
-                    )
+                    val entry =
+                        HistorialEntry(
+                            lanzamiento = columnas[0],
+                            tipoDado = columnas[1],
+                            total = columnas[2],
+                        )
                     historialList.add(entry)
                 }
             }
@@ -120,12 +158,13 @@ fun leerCSV(context: Context): List<HistorialEntry> {
     return historialList
 }
 
-
-fun borrarHistorial(context: Context, navController: NavController) {
-
+/**
+ * Funcion que gestiona el borrado del hisotrial y del fichero csv
+ */
+fun borrarHistorial(
+    context: Context,
+    navController: NavController,
+) {
     context.deleteFile("historial.csv")
     navController.navigate(R.id.inicio)
-
-
 }
-

@@ -1,7 +1,16 @@
 plugins {
+    // Librerias por defecto
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("androidx.navigation.safeargs")
+
+    // Safe Args para pasar parametro de una clase a otra
+    alias(libs.plugins.androidx.navigation.safeargs) apply false
+
+    // Generación de documentación con Dokka
+    alias(libs.plugins.kotlin.dokka)
+
+    // Ktlint para formatear el código
+    alias(libs.plugins.ktlint)
 }
 
 android {
@@ -25,7 +34,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
