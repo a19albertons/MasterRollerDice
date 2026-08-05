@@ -78,8 +78,7 @@ jobs:
       # Ejecutar pruebas unitarias
       - name: Ejecutar pruebas unitarias
         working-directory: ${{ github.workspace }}/MasterRollerDice
-        run: ./gradlew testReleaseUnitTest
-
+        run: ./gradlew test # anteriormente testReleaseUnitTest
   # Tests Instrumentados que requieren un emulador de Android
   TestsInstrumentados:
     name: Pruebas Instrumentadas
