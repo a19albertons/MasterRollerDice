@@ -11,6 +11,8 @@ activity = "1.11.0"
 constraintlayout = "2.2.1"
 navigationFragmentKtx = "2.9.5"
 navigationUiKtx = "2.9.5"
+ktlint = "14.2.0"
+dokka = "2.2.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -27,4 +29,6 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
+kotlin-dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 
