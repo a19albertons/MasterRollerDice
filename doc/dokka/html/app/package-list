@@ -1,0 +1,42 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:com.example.masterrollerdice////PointingToDeclaration/app/com.example.masterrollerdice/index.html
+$dokka.location:com.example.masterrollerdice//borrarHistorial/#android.content.Context#androidx.navigation.NavController/PointingToDeclaration/app/com.example.masterrollerdice/borrar-historial.html
+$dokka.location:com.example.masterrollerdice//leerCSV/#android.content.Context/PointingToDeclaration/app/com.example.masterrollerdice/leer-c-s-v.html
+$dokka.location:com.example.masterrollerdice/Historial///PointingToDeclaration/app/com.example.masterrollerdice/-historial/index.html
+$dokka.location:com.example.masterrollerdice/Historial/Historial/#/PointingToDeclaration/app/com.example.masterrollerdice/-historial/-historial.html
+$dokka.location:com.example.masterrollerdice/Historial/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.example.masterrollerdice/-historial/on-create-view.html
+$dokka.location:com.example.masterrollerdice/Historial/onViewCreated/#android.view.View#android.os.Bundle?/PointingToDeclaration/app/com.example.masterrollerdice/-historial/on-view-created.html
+$dokka.location:com.example.masterrollerdice/HistorialAdapter.HistorialViewHolder///PointingToDeclaration/app/com.example.masterrollerdice/-historial-adapter/-historial-view-holder/index.html
+$dokka.location:com.example.masterrollerdice/HistorialAdapter.HistorialViewHolder/HistorialViewHolder/#android.view.View/PointingToDeclaration/app/com.example.masterrollerdice/-historial-adapter/-historial-view-holder/-historial-view-holder.html
+$dokka.location:com.example.masterrollerdice/HistorialAdapter.HistorialViewHolder/historialLanzamientol/#/PointingToDeclaration/app/com.example.masterrollerdice/-historial-adapter/-historial-view-holder/historial-lanzamientol.html
+$dokka.location:com.example.masterrollerdice/HistorialAdapter.HistorialViewHolder/historialTipoDado/#/PointingToDeclaration/app/com.example.masterrollerdice/-historial-adapter/-historial-view-holder/historial-tipo-dado.html
+$dokka.location:com.example.masterrollerdice/HistorialAdapter.HistorialViewHolder/historialTotal/#/PointingToDeclaration/app/com.example.masterrollerdice/-historial-adapter/-historial-view-holder/historial-total.html
+$dokka.location:com.example.masterrollerdice/HistorialAdapter///PointingToDeclaration/app/com.example.masterrollerdice/-historial-adapter/index.html
+$dokka.location:com.example.masterrollerdice/HistorialAdapter/HistorialAdapter/#kotlin.collections.MutableList[com.example.masterrollerdice.HistorialEntry]/PointingToDeclaration/app/com.example.masterrollerdice/-historial-adapter/-historial-adapter.html
+$dokka.location:com.example.masterrollerdice/HistorialAdapter/getItemCount/#/PointingToDeclaration/app/com.example.masterrollerdice/-historial-adapter/get-item-count.html
+$dokka.location:com.example.masterrollerdice/HistorialAdapter/itemCount/#/PointingToDeclaration/app/com.example.masterrollerdice/-historial-adapter/item-count.html
+$dokka.location:com.example.masterrollerdice/HistorialAdapter/limpiarDatos/#/PointingToDeclaration/app/com.example.masterrollerdice/-historial-adapter/limpiar-datos.html
+$dokka.location:com.example.masterrollerdice/HistorialAdapter/onBindViewHolder/#com.example.masterrollerdice.HistorialAdapter.HistorialViewHolder#kotlin.Int/PointingToDeclaration/app/com.example.masterrollerdice/-historial-adapter/on-bind-view-holder.html
+$dokka.location:com.example.masterrollerdice/HistorialAdapter/onCreateViewHolder/#android.view.ViewGroup#kotlin.Int/PointingToDeclaration/app/com.example.masterrollerdice/-historial-adapter/on-create-view-holder.html
+$dokka.location:com.example.masterrollerdice/HistorialEntry///PointingToDeclaration/app/com.example.masterrollerdice/-historial-entry/index.html
+$dokka.location:com.example.masterrollerdice/HistorialEntry/HistorialEntry/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/app/com.example.masterrollerdice/-historial-entry/-historial-entry.html
+$dokka.location:com.example.masterrollerdice/HistorialEntry/lanzamiento/#/PointingToDeclaration/app/com.example.masterrollerdice/-historial-entry/lanzamiento.html
+$dokka.location:com.example.masterrollerdice/HistorialEntry/tipoDado/#/PointingToDeclaration/app/com.example.masterrollerdice/-historial-entry/tipo-dado.html
+$dokka.location:com.example.masterrollerdice/HistorialEntry/total/#/PointingToDeclaration/app/com.example.masterrollerdice/-historial-entry/total.html
+$dokka.location:com.example.masterrollerdice/Inicio///PointingToDeclaration/app/com.example.masterrollerdice/-inicio/index.html
+$dokka.location:com.example.masterrollerdice/Inicio/Inicio/#/PointingToDeclaration/app/com.example.masterrollerdice/-inicio/-inicio.html
+$dokka.location:com.example.masterrollerdice/Inicio/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.example.masterrollerdice/-inicio/on-create-view.html
+$dokka.location:com.example.masterrollerdice/MainActivity.Companion///PointingToDeclaration/app/com.example.masterrollerdice/-main-activity/-companion/index.html
+$dokka.location:com.example.masterrollerdice/MainActivity.Companion/isVibrationEnabled/#/PointingToDeclaration/app/com.example.masterrollerdice/-main-activity/-companion/is-vibration-enabled.html
+$dokka.location:com.example.masterrollerdice/MainActivity///PointingToDeclaration/app/com.example.masterrollerdice/-main-activity/index.html
+$dokka.location:com.example.masterrollerdice/MainActivity/MainActivity/#/PointingToDeclaration/app/com.example.masterrollerdice/-main-activity/-main-activity.html
+$dokka.location:com.example.masterrollerdice/MainActivity/onCreateOptionsMenu/#android.view.Menu?/PointingToDeclaration/app/com.example.masterrollerdice/-main-activity/on-create-options-menu.html
+$dokka.location:com.example.masterrollerdice/MainActivity/onOptionsItemSelected/#android.view.MenuItem/PointingToDeclaration/app/com.example.masterrollerdice/-main-activity/on-options-item-selected.html
+$dokka.location:com.example.masterrollerdice/MusicService///PointingToDeclaration/app/com.example.masterrollerdice/-music-service/index.html
+$dokka.location:com.example.masterrollerdice/MusicService/MusicService/#/PointingToDeclaration/app/com.example.masterrollerdice/-music-service/-music-service.html
+$dokka.location:com.example.masterrollerdice/MusicService/onBind/#android.content.Intent?/PointingToDeclaration/app/com.example.masterrollerdice/-music-service/on-bind.html
+$dokka.location:com.example.masterrollerdice/MusicService/onCreate/#/PointingToDeclaration/app/com.example.masterrollerdice/-music-service/on-create.html
+$dokka.location:com.example.masterrollerdice/MusicService/onDestroy/#/PointingToDeclaration/app/com.example.masterrollerdice/-music-service/on-destroy.html
+$dokka.location:com.example.masterrollerdice/MusicService/onStartCommand/#android.content.Intent?#kotlin.Int#kotlin.Int/PointingToDeclaration/app/com.example.masterrollerdice/-music-service/on-start-command.html
+com.example.masterrollerdice
