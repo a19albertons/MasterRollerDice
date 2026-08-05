@@ -12,7 +12,13 @@ import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
+/**
+ * Fragmento del historial
+ */
 class Historial : Fragment() {
+    /**
+     * Crea la vista del fragmento
+     */
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -58,16 +64,24 @@ class Historial : Fragment() {
     }
 }
 
+/**
+ * Data class interno que procesa el fichero csv
+ */
 data class HistorialEntry(
     val lanzamiento: String,
     val tipoDado: String,
     val total: String,
 )
 
+/**
+ * El adapter que genera la lista dinamica a partir del contenido del csv
+ */
 class HistorialAdapter(
     private var historialList: MutableList<HistorialEntry>,
 ) : RecyclerView.Adapter<HistorialAdapter.HistorialViewHolder>() {
-    // 1. ViewHolder: Guarda las referencias a las vistas de cada fila
+    /**
+     * Clase interna que representa una fila de la lista
+     */
     class HistorialViewHolder(
         itemView: View,
     ) : RecyclerView.ViewHolder(itemView) {
@@ -76,7 +90,9 @@ class HistorialAdapter(
         val historialTotal: TextView = itemView.findViewById(R.id.historial_total)
     }
 
-    // 2. Crea nuevos ViewHolders (infla el layout de la fila)
+    /**
+     * Crea una nueva vista (fila)
+     */
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
@@ -88,7 +104,9 @@ class HistorialAdapter(
         return HistorialViewHolder(view)
     }
 
-    // 3. Reemplaza el contenido de una vista (une los datos a la vista)
+    /**
+     * Reemplaza el contenido de una vista (une los datos a la vista)
+     */
     override fun onBindViewHolder(
         holder: HistorialViewHolder,
         position: Int,
@@ -99,15 +117,23 @@ class HistorialAdapter(
         holder.historialTotal.text = currentItem.total
     }
 
-    // 4. Devuelve el número total de elementos
+    /**
+     * Devuelve el número de elementos en la lista
+     */
     override fun getItemCount() = historialList.size
 
+    /**
+     * Borra todos los datos de la lista
+     */
     fun limpiarDatos() {
         historialList.clear() // Borra la lista en memoria
         notifyDataSetChanged() // Avisa al RecyclerView para que se repinte
     }
 }
 
+/**
+ * funcion encargada de leer el fichero csv
+ */
 fun leerCSV(context: Context): List<HistorialEntry> {
     val historialList = mutableListOf<HistorialEntry>()
     try {
@@ -132,6 +158,9 @@ fun leerCSV(context: Context): List<HistorialEntry> {
     return historialList
 }
 
+/**
+ * Funcion que gestiona el borrado del hisotrial y del fichero csv
+ */
 fun borrarHistorial(
     context: Context,
     navController: NavController,

@@ -18,6 +18,9 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
+/**
+ * Actividad principal de la app
+ */
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
 
@@ -28,6 +31,9 @@ class MainActivity : AppCompatActivity() {
         var isVibrationEnabled = true
     }
 
+    /**
+     * Crea la actividad
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -54,11 +60,17 @@ class MainActivity : AppCompatActivity() {
         startService(Intent(this, MusicService::class.java))
     }
 
+    /**
+     * Crea el menu
+     */
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_toolbar, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
+    /**
+     * Maneja los clics en el menu
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Aquí es donde manejas los clics
         when (item.itemId) {
@@ -117,6 +129,9 @@ class MainActivity : AppCompatActivity() {
         return NavigationUI.onNavDestinationSelected(item, navController) || super.onOptionsItemSelected(item)
     }
 
+    /**
+     * Para el servicio de musica al salir de la actividad
+     */
     override fun onDestroy() {
         super.onDestroy()
         stopService(Intent(this, MusicService::class.java))

@@ -15,7 +15,13 @@ import androidx.fragment.app.Fragment
 import java.io.FileOutputStream
 import java.io.OutputStreamWriter
 
+/**
+ * Fragmento del inicio
+ */
 class Inicio : Fragment() {
+    /**
+     * Crea la vista del fragmento
+     */
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -85,7 +91,6 @@ class Inicio : Fragment() {
         }
 
         // Listener de operacion (sin sistema de guardado)
-
         lanzador.setOnClickListener {
             // 1. Comprueba si la vibración está habilitada desde MainActivity
             if (MainActivity.isVibrationEnabled) {
@@ -270,6 +275,9 @@ class Inicio : Fragment() {
     }
 }
 
+/**
+ * Función que hace vibrar el dispositivo
+ */
 private fun vibrarDispositivo(context: Context) {
     val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
