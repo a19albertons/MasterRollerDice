@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.masterrollerdice.R
 import com.example.masterrollerdice.modelo.HistorialEntrada
@@ -11,9 +13,9 @@ import com.example.masterrollerdice.modelo.HistorialEntrada
 /**
  * El adapter que genera la lista dinamica a partir del contenido del csv
  */
-class HistorialAdapter(
-    private var historialList: MutableList<HistorialEntrada>,
-) : RecyclerView.Adapter<HistorialAdapter.HistorialViewHolder>() {
+class HistorialAdapter : ListAdapter<HistorialEntrada, HistorialAdapter.HistorialViewHolder>(
+    HistorialEntradaComprobacionDiferencias()
+) {
     /**
      * Clase interna que representa una fila de la lista
      */
@@ -46,14 +48,27 @@ class HistorialAdapter(
         holder: HistorialViewHolder,
         position: Int,
     ) {
-        val currentItem = historialList[position]
+        val currentItem = getItem(position)
         holder.historialLanzamientol.text = currentItem.lanzamiento.toString()
         holder.historialTipoDado.text = currentItem.tipoDado
-        holder.historialTotal.text = currentItem.total
+        holder.historialTotal.text = currentItem.total.toString()
     }
 
-    /**
-     * Devuelve el número de elementos en la lista
-     */
-    override fun getItemCount() = historialList.size
+    class HistorialEntradaComprobacionDiferencias : DiffUtil.ItemCallback<HistorialEntrada>() {
+        override fun areItemsTheSame(
+            oldItem: HistorialEntrada,
+            newItem: HistorialEntrada
+        ): Boolean {
+            return oldItem == newItem
+        }
+
+        override fun areContentsTheSame(
+            oldItem: HistorialEntrada,
+            newItem: HistorialEntrada
+        ): Boolean {
+            return oldItem.lanzamiento == newItem.lanzamiento
+        }
+
+
+    }
 }

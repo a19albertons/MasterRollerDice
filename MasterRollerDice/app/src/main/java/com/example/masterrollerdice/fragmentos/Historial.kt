@@ -7,19 +7,27 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.coroutineScope
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.masterrollerdice.ModelView.HistorialViewModel
 import com.example.masterrollerdice.R
 import com.example.masterrollerdice.adaper.HistorialAdapter
+import com.example.masterrollerdice.db.MasterRollerDice
 import com.example.masterrollerdice.modelo.HistorialEntrada
 import com.example.masterrollerdice.utility.GestionCSV
 import com.example.masterrollerdice.utility.GestionCSV.Companion.leerCSV
+import kotlinx.coroutines.launch
 
 /**
  * Fragmento del historial
  */
 class Historial : Fragment() {
+
+    val model : HistorialViewModel by viewModels()
+
     /**
      * Crea la vista del fragmento
      */
@@ -32,29 +40,11 @@ class Historial : Fragment() {
         val view = inflater.inflate(R.layout.fragment_historial, container, false)
 
         // Comprobamos si el csv esta vacio o no
-        val historialData = leerCSV(requireContext())
         val vacio = view.findViewById<LinearLayout>(R.id.no_hay_contenido_historial)
         val contenido = view.findViewById<LinearLayout>(R.id.hay_contenido_historial)
-        if (historialData.isEmpty()) {
-            vacio.visibility = View.VISIBLE
-            contenido.visibility = View.INVISIBLE
-        } else {
-            vacio.visibility = View.INVISIBLE
-            contenido.visibility = View.VISIBLE
-        }
-
-        return view
-    }
-
-    // Dentro de tu Fragmento/Activity:
-    override fun onViewCreated(
-        view: View,
-        savedInstanceState: Bundle?,
-    ) {
-        super.onViewCreated(view, savedInstanceState)
 
         // 1. Obtén la lista de datos del CSV
-        val historialData = leerCSV(requireContext()).toMutableList()
+        val db = MasterRollerDice.getDatabase(requireContext())
 
         // 2. Obtén la referencia al RecyclerView
         val recyclerView = view.findViewById<RecyclerView>(R.id.historial_recycler_view)
@@ -64,6 +54,22 @@ class Historial : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // 4. Crea y asigna el Adapter
-        recyclerView.adapter = HistorialAdapter(historialData)
+        val adapter = HistorialAdapter()
+        recyclerView.adapter = adapter
+
+        model.obtenerHistorial().observe(viewLifecycleOwner) { historialData ->
+            adapter.submitList(historialData)
+
+            if (historialData.isEmpty()) {
+                vacio.visibility = View.VISIBLE
+                contenido.visibility = View.INVISIBLE
+            } else {
+                vacio.visibility = View.INVISIBLE
+                contenido.visibility = View.VISIBLE
+            }
+        }
+
+
+        return view
     }
 }

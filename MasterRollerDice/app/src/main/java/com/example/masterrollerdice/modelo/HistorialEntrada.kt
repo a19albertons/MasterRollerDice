@@ -11,5 +11,5 @@ data class HistorialEntrada (
     @PrimaryKey(autoGenerate = true)
     val lanzamiento: Int,
     val tipoDado: String,
-    val total: String,
+    val total: Int,
 )

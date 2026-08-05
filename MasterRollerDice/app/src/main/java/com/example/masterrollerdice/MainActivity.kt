@@ -13,14 +13,17 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.coroutineScope
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
+import com.example.masterrollerdice.db.MasterRollerDice
 import com.example.masterrollerdice.servicios.MusicService
 import com.example.masterrollerdice.utility.GestionCSV
-import com.example.masterrollerdice.utility.GestionCSV.Companion.borrarHistorial
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.launch
 
 /**
  * Actividad principal de la app
@@ -61,6 +64,12 @@ class MainActivity : AppCompatActivity() {
         val bottmNav = findViewById<BottomNavigationView>(R.id.bottom_nav)
         bottmNav.setupWithNavController(navHostFragment.navController)
 
+        // Migración automática
+        val context = this.applicationContext
+        lifecycleScope.launch {
+            GestionCSV.migrarCsvABd(context)
+        }
+
         startService(Intent(this, MusicService::class.java))
     }
 
@@ -80,8 +89,13 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             // ACCIÓN 1: Limpiar Historial
             R.id.action_limpiar_historial -> {
-                // Llama al metodo de historial.kt directamente
-                borrarHistorial(this, navController)
+                val db = MasterRollerDice.getDatabase(this)
+                lifecycleScope.launch {
+                    db.historialDao().borrarHistorial()
+                    db.historialDao().borrarSecuencia()
+                }
+
+
 
                 // Notifica que hace algo
                 Toast.makeText(this, "Limpiar Historial", Toast.LENGTH_SHORT).show()
