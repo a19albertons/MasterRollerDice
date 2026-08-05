@@ -36,7 +36,6 @@ interface HistorialDAO {
     @Query("DELETE FROM sqlite_sequence WHERE name = 'historial'")
     suspend fun borrarSecuencia()
 
-
     /**
      * Operación sobre la fase de datos que añade los datos del csv a la base de datos
      */

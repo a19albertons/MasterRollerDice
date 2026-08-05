@@ -13,9 +13,10 @@ import com.example.masterrollerdice.modelo.HistorialEntrada
 /**
  * El adapter que genera la lista dinamica a partir del contenido del csv
  */
-class HistorialAdapter : ListAdapter<HistorialEntrada, HistorialAdapter.HistorialViewHolder>(
-    HistorialEntradaComprobacionDiferencias()
-) {
+class HistorialAdapter :
+    ListAdapter<HistorialEntrada, HistorialAdapter.HistorialViewHolder>(
+        HistorialEntradaComprobacionDiferencias(),
+    ) {
     /**
      * Clase interna que representa una fila de la lista
      */
@@ -57,18 +58,12 @@ class HistorialAdapter : ListAdapter<HistorialEntrada, HistorialAdapter.Historia
     class HistorialEntradaComprobacionDiferencias : DiffUtil.ItemCallback<HistorialEntrada>() {
         override fun areItemsTheSame(
             oldItem: HistorialEntrada,
-            newItem: HistorialEntrada
-        ): Boolean {
-            return oldItem == newItem
-        }
+            newItem: HistorialEntrada,
+        ): Boolean = oldItem == newItem
 
         override fun areContentsTheSame(
             oldItem: HistorialEntrada,
-            newItem: HistorialEntrada
-        ): Boolean {
-            return oldItem.lanzamiento == newItem.lanzamiento
-        }
-
-
+            newItem: HistorialEntrada,
+        ): Boolean = oldItem.lanzamiento == newItem.lanzamiento
     }
 }

@@ -27,7 +27,7 @@
 
         <!-- AÑADE ESTO -->
         <service
-            android:name=".MusicService"
+            android:name=".servicios.MusicService"
             android:enabled="true"
             android:exported="false" />
 

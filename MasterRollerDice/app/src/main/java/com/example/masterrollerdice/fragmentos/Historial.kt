@@ -1,6 +1,5 @@
 package com.example.masterrollerdice.fragmentos
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,25 +7,18 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.coroutineScope
-import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.masterrollerdice.ModelView.HistorialViewModel
 import com.example.masterrollerdice.R
 import com.example.masterrollerdice.adaper.HistorialAdapter
 import com.example.masterrollerdice.db.MasterRollerDice
-import com.example.masterrollerdice.modelo.HistorialEntrada
-import com.example.masterrollerdice.utility.GestionCSV
-import com.example.masterrollerdice.utility.GestionCSV.Companion.leerCSV
-import kotlinx.coroutines.launch
+import com.example.masterrollerdice.modelView.HistorialViewModel
 
 /**
  * Fragmento del historial
  */
 class Historial : Fragment() {
-
-    val model : HistorialViewModel by viewModels()
+    val model: HistorialViewModel by viewModels()
 
     /**
      * Crea la vista del fragmento
@@ -68,7 +60,6 @@ class Historial : Fragment() {
                 contenido.visibility = View.VISIBLE
             }
         }
-
 
         return view
     }

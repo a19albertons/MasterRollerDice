@@ -1,6 +1,5 @@
 package com.example.masterrollerdice.fragmentos
 
-import android.app.Application
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
@@ -18,10 +17,7 @@ import com.example.masterrollerdice.MainActivity
 import com.example.masterrollerdice.R
 import com.example.masterrollerdice.db.MasterRollerDice
 import com.example.masterrollerdice.modelo.HistorialEntrada
-import com.example.masterrollerdice.utility.GestionCSV.Companion.leerCSV
 import kotlinx.coroutines.launch
-import java.io.FileOutputStream
-import java.io.OutputStreamWriter
 
 /**
  * Fragmento del inicio
@@ -220,12 +216,11 @@ class Inicio : Fragment() {
                 db.historialDao().insertar(
                     HistorialEntrada(
                         0,
-                        ""+numDados+tipoDados,
-                        total
-                    )
+                        "" + numDados + tipoDados,
+                        total,
+                    ),
                 )
             }
-
         }
 
         // Listener de elegir dado

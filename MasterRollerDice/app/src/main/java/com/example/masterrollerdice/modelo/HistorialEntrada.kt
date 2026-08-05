@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
  * Data class interno que procesa el fichero csv
  */
 @Entity(tableName = "historial")
-data class HistorialEntrada (
+data class HistorialEntrada(
     @PrimaryKey(autoGenerate = true)
     val lanzamiento: Int,
     val tipoDado: String,

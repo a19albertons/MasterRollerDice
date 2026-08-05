@@ -1,10 +1,7 @@
 package com.example.masterrollerdice.utility
 
-import android.app.Application
 import android.content.Context
 import android.util.Log
-import androidx.navigation.NavController
-import com.example.masterrollerdice.R
 import com.example.masterrollerdice.db.MasterRollerDice
 import com.example.masterrollerdice.modelo.HistorialEntrada
 import java.io.File
@@ -16,11 +13,10 @@ import kotlin.sequences.forEach
  * Clase que procesa el fichero csv
  */
 class GestionCSV {
-
-
     // Funcionan como estaticas de java
     companion object {
         private val FILENAME = "historial.csv"
+
         /**
          * funcion encargada de leer el fichero csv
          */
@@ -52,9 +48,7 @@ class GestionCSV {
         /**
          * Funcion que gestiona el borrado del hisotrial y del fichero csv
          */
-        fun borrarHistorial(
-            context: Context,
-        ) {
+        fun borrarHistorial(context: Context) {
             context.deleteFile("historial.csv")
         }
 
@@ -68,26 +62,22 @@ class GestionCSV {
                     val db = MasterRollerDice.getDatabase(context)
                     db.historialDao().migrarCsvABd(listaHistorial)
 
-
                     // Borra el historial del csv
                     borrarHistorial(context)
-                }
-                else {
+                } else {
                     Log.d("migracion", "No hay datos que migrar o fallo en la función")
                 }
-
-
-
-
-
-            }
-            catch (e: Exception) {
+            } catch (e: Exception) {
                 e.printStackTrace()
                 Log.d("Error", "Algo ha fallado durante la migración final")
             }
         }
 
-        fun anadirFila(context: Context, fila: HistorialEntrada, dataAEscribir: String) {
+        fun anadirFila(
+            context: Context,
+            fila: HistorialEntrada,
+            dataAEscribir: String,
+        ) {
             try {
                 // Usa openFileOutput para escribir en el almacenamiento interno de la app.
                 // MODE_APPEND es crucial: añade al final en lugar de sobrescribir.

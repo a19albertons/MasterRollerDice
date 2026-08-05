@@ -1,6 +1,5 @@
 package com.example.masterrollerdice
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -13,7 +12,6 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.coroutineScope
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -95,8 +93,6 @@ class MainActivity : AppCompatActivity() {
                     db.historialDao().borrarSecuencia()
                 }
 
-
-
                 // Notifica que hace algo
                 Toast.makeText(this, "Limpiar Historial", Toast.LENGTH_SHORT).show()
                 return true // Indica que hemos gestionado el clic
@@ -155,5 +151,3 @@ class MainActivity : AppCompatActivity() {
         stopService(Intent(this, MusicService::class.java))
     }
 }
-
-
