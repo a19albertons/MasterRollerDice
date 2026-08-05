@@ -47,7 +47,7 @@ class HistorialAdapter(
         position: Int,
     ) {
         val currentItem = historialList[position]
-        holder.historialLanzamientol.text = currentItem.lanzamiento
+        holder.historialLanzamientol.text = currentItem.lanzamiento.toString()
         holder.historialTipoDado.text = currentItem.tipoDado
         holder.historialTotal.text = currentItem.total
     }

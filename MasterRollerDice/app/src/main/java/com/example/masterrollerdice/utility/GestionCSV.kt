@@ -25,7 +25,7 @@ class GestionCSV {
                         if (columnas.size >= 3) {
                             val entry =
                                 HistorialEntrada(
-                                    lanzamiento = columnas[0],
+                                    lanzamiento = columnas[0].toInt(),
                                     tipoDado = columnas[1],
                                     total = columnas[2],
                                 )
