@@ -2,6 +2,8 @@ package com.example.masterrollerdice
 
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.example.masterrollerdice.fragmentos.Historial
+import com.example.masterrollerdice.fragmentos.Inicio
 import org.junit.Test
 import org.junit.runner.RunWith
 

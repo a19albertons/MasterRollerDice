@@ -1,4 +1,4 @@
-package com.example.masterrollerdice
+package com.example.masterrollerdice.fragmentos
 
 import android.content.Context
 import android.os.Build
@@ -12,6 +12,9 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.example.masterrollerdice.MainActivity
+import com.example.masterrollerdice.R
+import com.example.masterrollerdice.utility.GestionCSV.Companion.leerCSV
 import java.io.FileOutputStream
 import java.io.OutputStreamWriter
 
