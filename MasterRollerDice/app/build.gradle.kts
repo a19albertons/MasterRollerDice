@@ -49,7 +49,6 @@ dependencies {
     debugImplementation(libs.androidx.fragment.testing.manifest)
     androidTestImplementation(libs.androidx.fragment.testing)
 
-
     // Librerias por defecto
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
