@@ -56,12 +56,4 @@ class HistorialAdapter(
      * Devuelve el número de elementos en la lista
      */
     override fun getItemCount() = historialList.size
-
-    /**
-     * Borra todos los datos de la lista
-     */
-    fun limpiarDatos() {
-        historialList.clear() // Borra la lista en memoria
-        notifyDataSetChanged() // Avisa al RecyclerView para que se repinte
-    }
 }
