@@ -1,10 +1,11 @@
-package com.example.masterrollerdice
+package com.example.masterrollerdice.servicios
 
 import android.app.Service
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.IBinder
 import android.util.Log
+import com.example.masterrollerdice.R
 
 /**
  * Servicio de musica
