@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/inicio"
-        android:name="com.example.masterrollerdice.Inicio"
+        android:name="com.example.masterrollerdice.fragmentos.Inicio"
         android:label="fragment_inicio"
         tools:layout="@layout/fragment_inicio" />
     <fragment
         android:id="@+id/historial"
-        android:name="com.example.masterrollerdice.Historial"
+        android:name="com.example.masterrollerdice.fragmentos.Historial"
         android:label="fragment_historial"
         tools:layout="@layout/fragment_historial" />
 </navigation>

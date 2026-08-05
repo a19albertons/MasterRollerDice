@@ -2,6 +2,9 @@ plugins {
     // Librerias por defecto
     alias(libs.plugins.android.application)
 
+    // KSP procesa las anotacioones de Room
+    alias(libs.plugins.ksp)
+
     // Safe Args para pasar parametro de una clase a otra
     alias(libs.plugins.androidx.navigation.safeargs) apply false
 
@@ -45,6 +48,12 @@ android {
 }
 
 dependencies {
+    // Librerias de room
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.kotlinx.coroutines.core)
+
     // Fragment scenario
     debugImplementation(libs.androidx.fragment.testing.manifest)
     androidTestImplementation(libs.androidx.fragment.testing)

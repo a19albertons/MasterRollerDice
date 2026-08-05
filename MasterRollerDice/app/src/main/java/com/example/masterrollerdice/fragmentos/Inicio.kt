@@ -1,4 +1,4 @@
-package com.example.masterrollerdice
+package com.example.masterrollerdice.fragmentos
 
 import android.content.Context
 import android.os.Build
@@ -12,8 +12,12 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import java.io.FileOutputStream
-import java.io.OutputStreamWriter
+import androidx.lifecycle.coroutineScope
+import com.example.masterrollerdice.MainActivity
+import com.example.masterrollerdice.R
+import com.example.masterrollerdice.db.MasterRollerDice
+import com.example.masterrollerdice.modelo.HistorialEntrada
+import kotlinx.coroutines.launch
 
 /**
  * Fragmento del inicio
@@ -207,23 +211,15 @@ class Inicio : Fragment() {
                     textoTotal.text = "Error"
                 }
             }
-            val filename = "historial.csv"
-            // Leer el historial actual para contar lanzamientos
-            val historialList = leerCSV(requireContext())
-            val numLanzamientos = historialList.size + 1 // Siguiente número de lanzamiento
-            val dataAEscribir = "$numLanzamientos,${numDados}$tipoDados,${total}\n"
-            try {
-                // Usa openFileOutput para escribir en el almacenamiento interno de la app.
-                // MODE_APPEND es crucial: añade al final en lugar de sobrescribir.
-                val outputStream: FileOutputStream = requireContext().openFileOutput(filename, Context.MODE_APPEND)
-
-                // Escribe la cadena al archivo.
-                OutputStreamWriter(outputStream).use { writer ->
-                    writer.write(dataAEscribir)
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
-                // Manejar el error de escritura (ej. almacenamiento lleno)
+            val db = MasterRollerDice.getDatabase(requireContext())
+            lifecycle.coroutineScope.launch {
+                db.historialDao().insertar(
+                    HistorialEntrada(
+                        0,
+                        "" + numDados + tipoDados,
+                        total,
+                    ),
+                )
             }
         }
 
