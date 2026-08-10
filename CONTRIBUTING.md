@@ -1,8 +1,8 @@
-# Contribuir a Tus Tareas
+# Contribuir a Master Roller Dice
 
 ---
 
-Gracias por tu interes en contriburitu en Tus Tareas. A continuación, se presenta una pequeña guia para darte unas pautas.
+Gracias por tu interes en contribuir en Master Roller Dice. A continuación, se presenta una pequeña guia para darte unas pautas.
 
 ## Desarrollo
 
