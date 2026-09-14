@@ -15,7 +15,7 @@ navigationUiKtx = "2.10.0"
 ktlint = "14.2.0"
 dokka = "2.2.0"
 ksp = "2.3.11"
-roomRuntime = "2.8.4"
+roomRuntime = "2.8.5"
 kotlinxCoroutinesCore = "1.11.0"
 
 
