@@ -14,7 +14,7 @@ navigationFragmentKtx = "2.10.1"
 navigationUiKtx = "2.10.0"
 ktlint = "14.2.0"
 dokka = "2.2.0"
-ksp = "2.3.11"
+ksp = "2.3.12"
 roomRuntime = "2.8.5"
 kotlinxCoroutinesCore = "1.11.0"
 
