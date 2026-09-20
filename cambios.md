@@ -1,3 +1,3 @@
 # Notas de desarrollo
 
-Lanzamiento inicial de la aplicación
+Correción de errores menores
