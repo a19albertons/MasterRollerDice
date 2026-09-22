@@ -223,7 +223,7 @@ jobs:
         uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ github.ref_name }}
-          name: ${{ github.ref_name }}-${{ steps.version.outputs.version }}
+          name: MasterRollerDice-${{ steps.version.outputs.version }}
           body_path: cambios.md
           files: ./apkFirmada/MasterRollerDice-${{ steps.version.outputs.version }}.apk
           draft: false
